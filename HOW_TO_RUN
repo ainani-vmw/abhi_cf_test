@@ -1,0 +1,3 @@
+cf push
+See "routes" field once command completed to access the URL
+URL should display "hello world" on browser

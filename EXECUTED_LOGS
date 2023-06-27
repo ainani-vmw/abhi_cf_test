@@ -1,0 +1,89 @@
+vmware@sc-rdops-vm11-dhcp-64-33:~/Abhishek/abhi_py_test$ cf push
+Pushing app myapp to org system / space pg_space as admin...
+Applying manifest file /home/vmware/Abhishek/abhi_py_test/manifest.yml...
+
+Updating with these attributes...
+  ---
+  applications:
+  - name: myapp
+    path: /home/vmware/Abhishek/abhi_py_test
+    memory: 128M
++   random-route: true
++   buildpack: python_buildpack
+    command: python server.py
+Manifest applied
+Packaging files to upload...
+Uploading files...
+ 632 B / 632 B [========================================================================================================] 100.00% 1s
+
+Waiting for API to complete processing files...
+
+Staging app and tracing logs...
+   Downloading python_buildpack...
+   Downloaded python_buildpack
+   Cell fc8939a0-96c5-4cd4-ae86-cc21b40f799e creating container for instance e036cb75-23c4-4bf0-8203-241a8b46fe4a
+   Security group rules were updated
+   Cell fc8939a0-96c5-4cd4-ae86-cc21b40f799e successfully created container for instance e036cb75-23c4-4bf0-8203-241a8b46fe4a
+   Downloading app package...
+   Downloaded app package (632B)
+   -----> Python Buildpack version 1.8.10
+   -----> Supplying Python
+   -----> Installing python 3.11.3
+   Copy [/tmp/buildpacks/0f427dc120154aeb0501c865ebb48987/dependencies/8e733817b256b4fc09c5f8985c56243c/python_3.11.3_linux_x64_cflinuxfs3_269dbe79.tgz]
+   Using python's pip module
+   pip 22.3.1 from /tmp/contents978497011/deps/0/python/lib/python3.11/site-packages/pip (python 3.11)
+   -----> Running Pip Install (Unvendored)
+   python -m pip install -r /tmp/app/requirements.txt --ignore-installed --exists-action=w --src=/tmp/contents978497011/deps/0/src --disable-pip-version-check --no-warn-script-location
+   Collecting Flask==2.0.1
+   Downloading Flask-2.0.1-py3-none-any.whl (94 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 94.8/94.8 kB 3.4 MB/s eta 0:00:00
+   Collecting Werkzeug>=2.0
+   Downloading Werkzeug-2.3.6-py3-none-any.whl (242 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 242.5/242.5 kB 12.9 MB/s eta 0:00:00
+   Collecting Jinja2>=3.0
+   Downloading Jinja2-3.1.2-py3-none-any.whl (133 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 133.1/133.1 kB 12.7 MB/s eta 0:00:00
+   Collecting itsdangerous>=2.0
+   Downloading itsdangerous-2.1.2-py3-none-any.whl (15 kB)
+   Collecting click>=7.1.2
+   Downloading click-8.1.3-py3-none-any.whl (96 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 96.6/96.6 kB 13.7 MB/s eta 0:00:00
+   Collecting MarkupSafe>=2.0
+   Downloading MarkupSafe-2.1.3-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (28 kB)
+   Installing collected packages: MarkupSafe, itsdangerous, click, Werkzeug, Jinja2, Flask
+   Successfully installed Flask-2.0.1 Jinja2-3.1.2 MarkupSafe-2.1.3 Werkzeug-2.3.6 click-8.1.3 itsdangerous-2.1.2
+   No start command specified by buildpack or via Procfile.
+   App will not start unless a command is provided at runtime.
+
+   Exit status 0
+   Uploading droplet, build artifacts cache...
+   Uploading droplet...
+   Uploading build artifacts cache...
+   Uploaded build artifacts cache (694.6K)
+
+Waiting for app myapp to start...
+
+Instances starting...
+Instances starting...
+Instances starting...
+Instances starting...
+Instances starting...
+Instances starting...
+
+name:              myapp
+requested state:   started
+routes:            myapp-brave-alligator-ec.apps.lavenderblue.cf-app.com
+last uploaded:     Fri 16 Jun 14:46:51 IST 2023
+stack:             cflinuxfs3
+buildpacks:
+        name               version   detect output   buildpack name
+        python_buildpack   1.8.10    python          python
+
+type:            web
+sidecars:
+instances:       1/1
+memory usage:    128M
+start command:   python server.py
+     state     since                  cpu    memory        disk       logging          details
+#0   running   2023-06-16T09:17:09Z   0.0%   32K of 128M   8K of 1G   39B/s of 16K/s
+
